@@ -13,3 +13,13 @@ fun findLocationDistance(points1: List<Int>, points2:List<Int>): Int{
 
     return  distance
 }
+
+fun findSimilarityScore(points1: List<Int>, points2:List<Int>): Int{
+    val similarityList = points1.map { point1Item->
+        val numberOfOccurrences = points2.filter {
+            point1Item == it
+        }.size
+        point1Item * numberOfOccurrences
+    }
+    return  similarityList.sum()
+}
